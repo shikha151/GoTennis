@@ -1,6 +1,5 @@
 package main
 import "fmt"
-import "strings"
 
 type Game struct {
    playerAScore int
@@ -30,21 +29,18 @@ func updateScore(score string){
 
 
 func printScores() {
-	score := []strings{"0", "15", "30", "40", "A"}
+	score := []string{"0", "15", "30", "40", "A"}
 	isWinner := false
 	if (isWinner==false) {
 
 		if ((myGame.playerAScore < 4) && (myGame.playerBScore < 4)) {
 			fmt.Println(score[myGame.playerAScore] + "-" + score[myGame.playerBScore])
-		}
-		else {
+		}else {
 			if (myGame.playerAScore == myGame.playerBScore) {
 				fmt.Println("40-40")
-			}
-			else if (myGame.playerAScore > myGame.playerAScore) {
+			}else if (myGame.playerAScore > myGame.playerAScore) {
 			fmt.Println("A-40")
-			}
-			else {
+			}else {
 			fmt.Println("40-A")
 			}
 		}
