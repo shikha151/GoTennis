@@ -12,7 +12,6 @@ myGame.playerAScore=0
 myGame.playerBScore=0
 
 getScore("ABABA")
-updateScore('A')
 }
 
 func getScore(scorePattern string){
