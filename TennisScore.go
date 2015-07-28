@@ -14,7 +14,12 @@ myGame.playerAScore=0
 myGame.playerBScore=0
 myGame.setsWonByA=0
 myGame.setsWonByB=0
-getScore("ABABABBBBAAAA")
+
+var scorePattern string
+fmt.Scanln(&scorePattern)
+fmt.Println("\n")
+getScore(scorePattern)
+updateScore('B')
 }
 
 func getScore(scorePattern string){
