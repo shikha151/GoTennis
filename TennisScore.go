@@ -7,15 +7,19 @@ type Game struct {
 }
 var myGame Game
 
-
 func main() {
 myGame.playerAScore=0
 myGame.playerBScore=0
 
-updateScore("A")
+getScore("ABABA")
+updateScore('A')
 }
 
-
+func getScore(scorePattern string){
+for i := 0; i < len(scorePattern); i++ {
+      updateScore(scorePattern[i])
+   }
+}
 
 func updateScore(score string){
    if (score=="A") {
@@ -24,8 +28,7 @@ func updateScore(score string){
    if (score=="B"){
       myGame.playerBScore++
    }   
-   fmt.Println("Score Updated")
-	printScores()
+   printScores()
 }
 
 
