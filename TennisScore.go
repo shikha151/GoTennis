@@ -63,11 +63,19 @@ func hasWonSet() bool{
    if( (aScore > 3) && (aScore - bScore >= 2) ) {
        myGame.setsWonByA++
        fmt.Printf("%d-%d\n",myGame.setsWonByA,myGame.setsWonByB );
+	if(!hasWonMatch()) {
 	   return true
+        } else {
+         fmt.Printf("Game Over\n");  
+         }
    } else if( (bScore > 3) && (bScore - aScore >= 2) ){
        myGame.setsWonByB++
        fmt.Printf("%d-%d\n",myGame.setsWonByA,myGame.setsWonByB );
+       if(!hasWonMatch()) {
 	   return true
+       } else {
+         fmt.Printf("Game Over\n");  
+         }
    }
    return false
 }
