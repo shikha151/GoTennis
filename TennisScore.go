@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+/*import "fmt"*/
 
 type Game struct {
    playerAScore int
@@ -8,7 +8,15 @@ type Game struct {
 }
 
 func main() {
-
+fmt.Println("output")
 }
 
+funt updateScore(score)
+{
+var Game game
 
+if(score=='A')
+game.playerAscore++
+fmt.Println("output")
+
+}
