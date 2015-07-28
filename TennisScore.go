@@ -19,19 +19,19 @@ updateScore("A")
 
 func updateScore(score string){
    if (score=="A") {
-      game.playerAScore++
+      myGame.playerAScore++
    } 
    if (score=="B"){
-      game.playerBScore++
+      myGame.playerBScore++
    }   
    fmt.Println("Score Updated")
+	printScores()
 }
 
 
 func printScores() {
 	score := []string{"0", "15", "30", "40", "A"}
-	isWinner := false
-	if (isWinner==false) {
+	if (!isWinner()) {
 
 		if ((myGame.playerAScore < 4) && (myGame.playerBScore < 4)) {
 			fmt.Println(score[myGame.playerAScore] + "-" + score[myGame.playerBScore])
