@@ -21,11 +21,11 @@ for i := 0; i < len(scorePattern); i++ {
    }
 }
 
-func updateScore(score string){
-   if (score=="A") {
+func updateScore(score byte){
+   if (score=='A') {
       myGame.playerAScore++
    } 
-   if (score=="B"){
+   if (score=='B'){
       myGame.playerBScore++
    }   
    printScores()
