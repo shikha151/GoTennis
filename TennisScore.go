@@ -2,19 +2,19 @@ package main
 import "fmt"
 import "os"
 
-type Game struct {
+type ScoreBoard struct {
    playerAScore int
    playerBScore int
    setsWonByA int
    setsWonByB int
 }
-var myGame Game
+var scoreBoard ScoreBoard
 
 func main() {
-myGame.playerAScore=0
-myGame.playerBScore=0
-myGame.setsWonByA=0
-myGame.setsWonByB=0	
+scoreBoard.playerAScore=0
+scoreBoard.playerBScore=0
+scoreBoard.setsWonByA=0
+scoreBoard.setsWonByB=0	
 	
 getScore("ABABABBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 }
@@ -27,14 +27,14 @@ for i := 0; i < len(scorePattern); i++ {
 
 func updateScore(score byte){
    if (score=='A') {
-      myGame.playerAScore++
+      scoreBoard.playerAScore++
    } 
    if (score=='B'){
-      myGame.playerBScore++
+      scoreBoard.playerBScore++
    }
    if (hasWonSet()) {
-   	myGame.playerAScore=0
-   	myGame.playerBScore=0
+   	scoreBoard.playerAScore=0
+   	scoreBoard.playerBScore=0
    } else {
    printScores()
    }
@@ -44,12 +44,12 @@ func updateScore(score byte){
 func printScores() {
 	score := []string{"0", "15", "30", "40", "A"}
 
-		if ((myGame.playerAScore < 4) && (myGame.playerBScore < 4)) {
-			fmt.Println(score[myGame.playerAScore] + "-" + score[myGame.playerBScore])
+		if ((scoreBoard.playerAScore < 4) && (scoreBoard.playerBScore < 4)) {
+			fmt.Println(score[scoreBoard.playerAScore] + "-" + score[scoreBoard.playerBScore])
 		}else {
-			if (myGame.playerAScore == myGame.playerBScore) {
+			if (scoreBoard.playerAScore == scoreBoard.playerBScore) {
 				fmt.Println("40-40")
-			}else if (myGame.playerAScore > myGame.playerAScore) {
+			}else if (scoreBoard.playerAScore > scoreBoard.playerAScore) {
 			fmt.Println("A-40")
 			}else {
 			fmt.Println("40-A")
@@ -59,12 +59,12 @@ func printScores() {
 
 func hasWonSet() bool{
    
-   var aScore int = myGame.playerAScore;
-   var bScore int = myGame.playerBScore;
+   var aScore int = scoreBoard.playerAScore;
+   var bScore int = scoreBoard.playerBScore;
  
    if( (aScore > 3) && (aScore - bScore >= 2) ) {
-       myGame.setsWonByA++
-       fmt.Printf("%d-%d\n",myGame.setsWonByA,myGame.setsWonByB );
+       scoreBoard.setsWonByA++
+       fmt.Printf("%d-%d\n",scoreBoard.setsWonByA,scoreBoard.setsWonByB );
 	if(!hasWonMatch()) {
 	   return true
         } else {
@@ -72,8 +72,8 @@ func hasWonSet() bool{
          os.Exit(1)
          }
    } else if( (bScore > 3) && (bScore - aScore >= 2) ){
-       myGame.setsWonByB++
-       fmt.Printf("%d-%d\n",myGame.setsWonByA,myGame.setsWonByB );
+       scoreBoard.setsWonByB++
+       fmt.Printf("%d-%d\n",scoreBoard.setsWonByA,scoreBoard.setsWonByB );
        if(!hasWonMatch()) {
 	   return true
        } else {
@@ -86,8 +86,8 @@ func hasWonSet() bool{
 
 func hasWonMatch() bool{
     
-    var aSetsWon int = myGame.setsWonByA;
-    var bSetsWon int = myGame.setsWonByB;
+    var aSetsWon int = scoreBoard.setsWonByA;
+    var bSetsWon int = scoreBoard.setsWonByB;
     
     if( (aSetsWon > 5) && (aSetsWon - bSetsWon >= 2) ) {
        fmt.Printf("Player A wins\n" );
