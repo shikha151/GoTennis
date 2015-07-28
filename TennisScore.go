@@ -11,18 +11,15 @@ type Game struct {
 var myGame Game
 
 func main() {
-getScore("ABABABBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-}
-
-func initializeValue(){
 myGame.playerAScore=0
 myGame.playerBScore=0
 myGame.setsWonByA=0
-myGame.setsWonByB=0
+myGame.setsWonByB=0	
+	
+getScore("ABABABBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 }
 
 func getScore(scorePattern string){
-initializeValue()
 for i := 0; i < len(scorePattern); i++ {
       updateScore(scorePattern[i])
    }
