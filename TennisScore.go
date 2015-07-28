@@ -1,5 +1,6 @@
 package main
 import "fmt"
+import "strings"
 
 type Game struct {
    playerAScore int
