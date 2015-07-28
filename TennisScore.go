@@ -71,3 +71,18 @@ func hasWonSet() bool{
    }
    return false
 }
+
+func hasWonMatch() bool{
+    
+    var aSetsWon int = myGame.setsWonByA;
+    var bSetsWon int = myGame.setsWonByB;
+    
+    if( (aSetsWon > 5) && (aSetsWon - bSetsWon >= 2) ) {
+       fmt.Printf("Player A wins\n" );
+	   return true
+   } else if( (bSetsWon > 5) && (bSetsWon - aSetsWon >= 2) ){
+       fmt.Printf("Player B Wins\n" );
+	   return true
+   }
+   return false
+}
