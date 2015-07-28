@@ -5,12 +5,12 @@ type Game struct {
    playerAScore int
    playerBScore int
 }
-var game Game
+var myGame Game
 
 
 func main() {
-game.playerAScore=0
-game.playerBScore=0
+myGame.playerAScore=0
+myGame.playerBScore=0
 
 updateScore("A")
 }
@@ -25,4 +25,27 @@ func updateScore(score string){
       game.playerBScore++
    }   
    fmt.Println("Score Updated")
+}
+
+
+func printScores() {
+	score := []strings{"0", "15", "30", "40", "A"}
+	isWinner := false
+	if (isWinner==false) {
+
+		if ((myGame.playerAScore < 4) && (myGame.playerBScore < 4)) {
+			fmt.Println(score[myGame.playerAScore] + "-" + score[myGame.playerBScore])
+		}
+		else {
+			if (myGame.playerAScore == myGame.playerBScore) {
+				fmt.Println("40-40")
+			}
+			else if (myGame.playerAScore > myGame.playerAScore) {
+			fmt.Println("A-40")
+			}
+			else {
+			fmt.Println("40-A")
+			}
+		}
+	}
 }
