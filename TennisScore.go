@@ -1,5 +1,6 @@
 package main
 import "fmt"
+import "os"
 
 type Game struct {
    playerAScore int
@@ -67,6 +68,7 @@ func hasWonSet() bool{
 	   return true
         } else {
          fmt.Printf("Game Over\n");  
+         os.Exit(1)
          }
    } else if( (bScore > 3) && (bScore - aScore >= 2) ){
        myGame.setsWonByB++
@@ -74,7 +76,8 @@ func hasWonSet() bool{
        if(!hasWonMatch()) {
 	   return true
        } else {
-         fmt.Printf("Game Over\n");  
+         fmt.Printf("Game Over\n");
+         os.Exit(1)
          }
    }
    return false
