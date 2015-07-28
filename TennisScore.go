@@ -4,14 +4,17 @@ import "fmt"
 type Game struct {
    playerAScore int
    playerBScore int
+   setsWonByA int
+   setsWonByB int
 }
 var myGame Game
 
 func main() {
 myGame.playerAScore=0
 myGame.playerBScore=0
-
-getScore("ABABA")
+myGame.setsWonByA=0
+myGame.setsWonByB=0
+getScore("ABABABBBBAAAA")
 }
 
 func getScore(scorePattern string){
@@ -26,14 +29,18 @@ func updateScore(score byte){
    } 
    if (score=='B'){
       myGame.playerBScore++
-   }   
+   }
+   if (isWinner()) {
+   	myGame.playerAScore=0
+   	myGame.playerBScore=0
+   } else {
    printScores()
+   }
 }
 
 
 func printScores() {
 	score := []string{"0", "15", "30", "40", "A"}
-	if (!isWinner()) {
 
 		if ((myGame.playerAScore < 4) && (myGame.playerBScore < 4)) {
 			fmt.Println(score[myGame.playerAScore] + "-" + score[myGame.playerBScore])
@@ -46,7 +53,6 @@ func printScores() {
 			fmt.Println("40-A")
 			}
 		}
-	}
 }
 
 func isWinner() bool{
@@ -55,10 +61,12 @@ func isWinner() bool{
    var bScore int = myGame.playerBScore;
  
    if( (aScore > 3) && (aScore - bScore >= 2) ) {
-       fmt.Printf("1-0\n" );
+       myGame.setsWonByA++
+       fmt.Printf("%d-%d\n",myGame.setsWonByA,myGame.setsWonByB );
 	   return true
    } else if( (bScore > 3) && (bScore - aScore >= 2) ){
-       fmt.Printf("0-1\n" );
+       myGame.setsWonByB++
+       fmt.Printf("%d-%d\n",myGame.setsWonByA,myGame.setsWonByB );
 	   return true
    }
    return false
