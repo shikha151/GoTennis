@@ -30,7 +30,7 @@ func updateScore(score byte){
    if (score=='B'){
       myGame.playerBScore++
    }
-   if (isWinner()) {
+   if (hasWonSet()) {
    	myGame.playerAScore=0
    	myGame.playerBScore=0
    } else {
@@ -55,7 +55,7 @@ func printScores() {
 		}
 }
 
-func isWinner() bool{
+func hasWonSet() bool{
    
    var aScore int = myGame.playerAScore;
    var bScore int = myGame.playerBScore;
