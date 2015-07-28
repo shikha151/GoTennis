@@ -46,3 +46,18 @@ func printScores() {
 		}
 	}
 }
+
+func isWinner() bool{
+   
+   var aScore int = myGame.playerAScore;
+   var bScore int = myGame.playerBScore;
+ 
+   if( (aScore > 3) && (aScore - bScore >= 2) ) {
+       fmt.Printf("1-0\n" );
+	   return true
+   } else if( (bScore > 3) && (bScore - aScore >= 2) ){
+       fmt.Printf("0-1\n" );
+	   return true
+   }
+   return false
+}
